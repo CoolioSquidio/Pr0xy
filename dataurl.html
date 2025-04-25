@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML to Data URL Converter</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    textarea { width: 100%; height: 200px; }
+    input, button { margin-top: 10px; width: 100%; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Convert HTML to Data URL</h2>
+  <textarea id="htmlInput" placeholder="Enter your HTML code here..."></textarea>
+  <button onclick="convertToDataURL()">Convert</button>
+  <input type="text" id="dataURL" readonly placeholder="Data URL will appear here...">
+  <script>
+    function convertToDataURL() {
+      const html = document.getElementById('htmlInput').value;
+      const encoded = encodeURIComponent(html);
+      const dataURL = `data:text/html;charset=utf-8,${encoded}`;
+      document.getElementById('dataURL').value = dataURL;
+    }
+  </script>
+</body>
+</html>
